@@ -1,0 +1,33 @@
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Radiobuton")
+
+# Variable de control
+opcion = tk.StringVar()
+opcion.set("Error")
+
+
+#Creando las funciones de los botones
+
+def show():
+    if opcion.get() == "Error":
+        tk.Label(root, text="Elige una opcion").pack()
+    else:
+        tk.Label(root, text=opcion.get()).pack()
+        
+def reincio():
+    opcion.set("Error")
+
+# Creando los radiobutton
+
+tk.Radiobutton(text="Lunes", variable=opcion, value="Lunes").pack()
+tk.Radiobutton(text="Martes", variable=opcion, value="Martes").pack()
+tk.Radiobutton(text="Miercoles", variable=opcion, value="Miercoles").pack()
+tk.Radiobutton(text="Jueves", variable=opcion, value="Jueves").pack()
+
+# Creando los botones
+tk.Button(root, text="Enviar",command=show).pack()
+tk.Button(root, text="Reinicio",command=reincio).pack()
+
+root.mainloop()
